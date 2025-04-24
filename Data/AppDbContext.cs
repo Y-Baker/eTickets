@@ -1,4 +1,5 @@
 ﻿using eTickets.Models;
+using eTickets.Utils;
 using Microsoft.EntityFrameworkCore;
 
 namespace eTickets.Data;
@@ -26,5 +27,6 @@ public class AppDbContext : DbContext
         base.OnModelCreating(modelBuilder);
         modelBuilder.Entity<ActorMovie>().HasOne(e => e.Movie).WithMany(e => e.ActorMovies).HasForeignKey(e => e.MovieId).OnDelete(DeleteBehavior.Cascade);
         modelBuilder.Entity<ActorMovie>().HasOne(e => e.Actor).WithMany(e => e.ActorMovies).HasForeignKey(e => e.ActorId).OnDelete(DeleteBehavior.Cascade);
+
     }
 }
