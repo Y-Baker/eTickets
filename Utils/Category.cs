@@ -7,4 +7,8 @@ public enum Category
     Drama,
     Documentary,
     Fantasy,
+    Horror,
+    SciFi,
+    Cartoon,
+    Romance,
 }

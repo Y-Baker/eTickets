@@ -16,7 +16,7 @@ public class CinemasController : Controller
     public async Task<IActionResult> Index()
     {
         var cinemas = await context.Cinemas.ToListAsync();
-        return View();
+        return View(cinemas);
     }
 }
 

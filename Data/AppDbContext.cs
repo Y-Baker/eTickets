@@ -28,5 +28,6 @@ public class AppDbContext : DbContext
         modelBuilder.Entity<ActorMovie>().HasOne(e => e.Movie).WithMany(e => e.ActorMovies).HasForeignKey(e => e.MovieId).OnDelete(DeleteBehavior.Cascade);
         modelBuilder.Entity<ActorMovie>().HasOne(e => e.Actor).WithMany(e => e.ActorMovies).HasForeignKey(e => e.ActorId).OnDelete(DeleteBehavior.Cascade);
 
+        modelBuilder.SeedDefaultData();
     }
 }

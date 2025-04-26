@@ -16,6 +16,6 @@ public class ProducersController : Controller
     public async Task<IActionResult> Index()
     {
         var producers = await context.Producers.ToListAsync();
-        return View();
+        return View(producers);
     }
 }
