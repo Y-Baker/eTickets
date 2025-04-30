@@ -16,5 +16,10 @@ public class ActorsController : Controller
     {
         var actors = await _context.Actors.ToListAsync();
         return View(actors);
-    } 
+    }
+
+    public async Task<IActionResult> Create()
+    {
+        return View();
+    }
 }
