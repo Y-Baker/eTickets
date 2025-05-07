@@ -93,4 +93,26 @@ public class ActorsController : Controller
 
         return RedirectToAction(nameof(Index));
     }
+
+    [HttpGet("{id:int}/delete")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        var actor = await service.GetById(id);
+        if (actor == null) return NotFound();
+        return View(actor);
+    }
+
+    [HttpPost("{id:int}/delete")]
+    [ActionName("Delete")]
+    public async Task<IActionResult> DeleteConfirmed(int id)
+    {
+        var actor = await service.GetById(id);
+        if (actor == null) return NotFound();
+
+        await service.Delete(id);
+
+        return RedirectToAction(nameof(Index));
+    }
+
+
 }
