@@ -53,7 +53,7 @@ public class ActorsController : Controller
         };
 
         await service.Add(actor);
-
+        // await service.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
 

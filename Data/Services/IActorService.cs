@@ -1,17 +1,9 @@
 using System;
+using eTickets.Data.Interface;
 using eTickets.Models;
 
 namespace eTickets.Data.Services;
 
-public interface IActorService
+public interface IActorService : IBaseRepository<Actor>
 {
-    Task<IEnumerable<Actor>> GetAll();
-
-    Task<Actor?> GetById(int id);
-
-    Task Add(Actor actor);
-
-    Task Update(Actor actor);
-    
-    Task Delete(int id);
 }
