@@ -1,9 +1,9 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace eTickets.DTOs.Actors;
+namespace eTickets.DTOs.Producer;
 
-public class CreateActorDto
+public class CreateProducerDto
 {
     [Display(Name = "Profile Picture")]
     [Required(ErrorMessage = "Profile picture URL is required")]

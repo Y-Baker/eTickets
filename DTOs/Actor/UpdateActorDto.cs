@@ -1,6 +1,6 @@
 using System;
 
-namespace eTickets.DTOs.Actors;
+namespace eTickets.DTOs.Actor;
 
 public class UpdateActorDto : CreateActorDto
 {

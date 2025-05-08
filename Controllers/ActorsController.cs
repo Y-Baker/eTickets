@@ -1,6 +1,6 @@
 using eTickets.Data;
 using eTickets.Data.Services;
-using eTickets.DTOs.Actors;
+using eTickets.DTOs.Actor;
 using eTickets.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -41,9 +41,7 @@ public class ActorsController : Controller
     public async Task<IActionResult> Create(CreateActorDto dto)
     {
         if (!ModelState.IsValid)
-        {
             return View(dto);
-        }
 
         var actor = new Actor
         {
