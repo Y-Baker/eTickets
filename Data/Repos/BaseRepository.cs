@@ -1,4 +1,5 @@
 using System;
+using System.Linq.Expressions;
 using eTickets.Data.Interface;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,6 +17,14 @@ public class BaseRepository<T> : IBaseRepository<T> where T : class, IEntityBase
     public async Task<IEnumerable<T>> GetAll()
     {
         return await context.Set<T>().ToListAsync();
+    }
+
+    public async Task<IEnumerable<T>> GetAll(params Expression<Func<T, object>>[] includes)
+    {
+        IQueryable<T> query = context.Set<T>();
+        
+        query = includes.Aggregate(query, (current, include) => current.Include(include));
+        return await query.ToListAsync();
     }
 
     public Task<T?> GetById(int id)
