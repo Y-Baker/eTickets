@@ -23,7 +23,7 @@ public class ActorsController : Controller
         return View(actors);
     }
 
-    [HttpGet("{id:int}")]
+    [HttpGet]
     public async Task<IActionResult> Details(int id)
     {
         var actor = await service.GetById(id);
@@ -56,7 +56,7 @@ public class ActorsController : Controller
     }
 
 
-    [HttpGet("{id:int}/edit")]
+    [HttpGet]
     public async Task<IActionResult> Edit(int id)
     {
         var actor = await service.GetById(id);
@@ -72,7 +72,7 @@ public class ActorsController : Controller
         return View(dto);
     }
 
-    [HttpPost("{id:int}/edit")]
+    [HttpPost]
     public async Task<IActionResult> Edit(int id, UpdateActorDto dto)
     {
         if (!ModelState.IsValid)
@@ -92,7 +92,7 @@ public class ActorsController : Controller
         return RedirectToAction(nameof(Index));
     }
 
-    [HttpGet("{id:int}/delete")]
+    [HttpGet]
     public async Task<IActionResult> Delete(int id)
     {
         var actor = await service.GetById(id);
@@ -100,7 +100,7 @@ public class ActorsController : Controller
         return View(actor);
     }
 
-    [HttpPost("{id:int}/delete")]
+    [HttpPost]
     [ActionName("Delete")]
     public async Task<IActionResult> DeleteConfirmed(int id)
     {
@@ -111,6 +111,4 @@ public class ActorsController : Controller
 
         return RedirectToAction(nameof(Index));
     }
-
-
 }
