@@ -7,8 +7,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AppDbContext>(op => op.UseLazyLoadingProxies().UseSqlServer(builder.Configuration.GetConnectionString("SQL-Server")));
-builder.Services.AddScoped<IActorService, ActorService>(); 
+builder.Services.AddScoped<IActorService, ActorService>();
 builder.Services.AddScoped<IProducerService, ProducerService>();
+builder.Services.AddScoped<ICinemaService, CinemaService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
